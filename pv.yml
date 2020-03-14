@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: test
-  labels:
-    app: mysql
+  name: registrypv
 spec:
   capacity:
-    storage: 10Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 172.31.30.48
+    server: 172.17.0.96
     # Exported path of your NFS server and ip of server
-    path: "/test"
+    path: "/ocp_pv"
+  persistentVolumeReclaimPolicy: Recycle
+  claimRef:
+    name: registrypvc
