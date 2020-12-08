@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: registrypv
+  labels: registry-pv
 spec:
   capacity:
     storage: 5Gi
